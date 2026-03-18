@@ -225,3 +225,236 @@ footer{background:var(--bg1);border-top:1px solid var(--border)}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--bg4)}
 ::-webkit-scrollbar-thumb:hover{background:var(--red)}
+
+/* ═══════════════════════════════════════════
+   PREMIUM ANIMATIONS & TRANSITIONS
+═══════════════════════════════════════════ */
+
+/* ── Scroll-triggered base ── */
+.anim {
+  will-change: transform, opacity;
+  transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+}
+.anim-fadeUp   { opacity:0; transform:translateY(40px) }
+.anim-fadeIn   { opacity:0; transform:none }
+.anim-fadeLeft { opacity:0; transform:translateX(-40px) }
+.anim-fadeRight{ opacity:0; transform:translateX(40px) }
+.anim-scaleUp  { opacity:0; transform:scale(.92) }
+.anim-slideIn  { opacity:0; transform:translateY(20px) skewY(2deg) }
+.anim-visible  { opacity:1 !important; transform:none !important }
+
+/* ── Hero entrance ── */
+@keyframes heroEyebrow {
+  from { opacity:0; letter-spacing:.6em }
+  to   { opacity:1; letter-spacing:.3em }
+}
+@keyframes heroTitle {
+  from { opacity:0; transform:translateY(60px) skewY(-3deg) }
+  to   { opacity:1; transform:none }
+}
+@keyframes heroSub {
+  from { opacity:0; transform:translateY(30px) }
+  to   { opacity:1; transform:none }
+}
+@keyframes heroBtns {
+  from { opacity:0; transform:translateY(20px) }
+  to   { opacity:1; transform:none }
+}
+.hero-eyebrow { animation: heroEyebrow .9s cubic-bezier(.22,1,.36,1) .2s both }
+.hero h1      { animation: heroTitle  1s  cubic-bezier(.22,1,.36,1) .4s both }
+.hero-sub     { animation: heroSub   .9s cubic-bezier(.22,1,.36,1) .7s both }
+.hero-btns    { animation: heroBtns  .9s cubic-bezier(.22,1,.36,1) .95s both }
+
+/* ── Hero background pulse ── */
+@keyframes bgPulse {
+  0%,100% { opacity:.6 }
+  50%     { opacity:1  }
+}
+.hero-bg { animation: bgPulse 8s ease-in-out infinite }
+
+/* ── Navbar entrance ── */
+@keyframes navSlide {
+  from { transform:translateY(-100%); opacity:0 }
+  to   { transform:none; opacity:1 }
+}
+.navbar { animation: navSlide .6s cubic-bezier(.22,1,.36,1) both }
+
+/* ── Navbar link underline slide ── */
+.navbar-links a {
+  transition: color .25s, border-color .25s;
+  position: relative;
+}
+.navbar-links a::after {
+  content:'';
+  position:absolute; bottom:-2px; left:0;
+  width:0; height:2px;
+  background:var(--red);
+  transition: width .3s cubic-bezier(.22,1,.36,1);
+}
+.navbar-links a:hover::after,
+.navbar-links a.active::after { width:100% }
+
+/* ── Button press & ripple ── */
+.btn { position:relative; overflow:hidden }
+.btn::after {
+  content:'';
+  position:absolute; inset:0;
+  background:rgba(255,255,255,.12);
+  opacity:0;
+  transition: opacity .3s;
+}
+.btn:hover::after { opacity:1 }
+.btn:active { transform:scale(.97) !important }
+.btn-submit { position:relative; overflow:hidden }
+.btn-submit::after {
+  content:'';
+  position:absolute; inset:0;
+  background:rgba(255,255,255,.08);
+  opacity:0; transition:opacity .3s;
+}
+.btn-submit:hover::after { opacity:1 }
+.btn-submit:active { transform:scale(.98) }
+
+/* ── Card hover lift with glow trail ── */
+.card {
+  transition: transform .35s cubic-bezier(.22,1,.36,1),
+              border-color .35s,
+              box-shadow .35s;
+}
+.card::before {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(229,0,0,.06) 0%,transparent 60%);
+  opacity:0;
+  transition:opacity .35s;
+  pointer-events:none;
+}
+.card { position:relative }
+.card:hover::before { opacity:1 }
+.card:hover { transform:translateY(-8px) }
+
+/* ── Card image zoom ── */
+.card-img {
+  transition: transform .5s cubic-bezier(.22,1,.36,1), filter .4s;
+}
+.card:hover .card-img { transform:scale(1.06) }
+
+/* ── Trainer card ── */
+.trainer-card {
+  transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s, box-shadow .35s;
+}
+.trainer-card:hover { transform:translateY(-8px); box-shadow:0 16px 50px var(--red-glow) }
+.trainer-img {
+  transition: transform .6s cubic-bezier(.22,1,.36,1), filter .4s;
+}
+.trainer-card:hover .trainer-img { transform:scale(1.07) }
+
+/* ── Stats bar count-up shimmer ── */
+@keyframes statShimmer {
+  from { opacity:0; transform:translateY(20px) }
+  to   { opacity:1; transform:none }
+}
+.stats-bar .stat-num {
+  animation: statShimmer .6s cubic-bezier(.22,1,.36,1) both;
+}
+.stats-inner > div:nth-child(1) .stat-num { animation-delay:.1s }
+.stats-inner > div:nth-child(2) .stat-num { animation-delay:.2s }
+.stats-inner > div:nth-child(3) .stat-num { animation-delay:.3s }
+.stats-inner > div:nth-child(4) .stat-num { animation-delay:.4s }
+
+/* ── Plan card featured pulse ── */
+@keyframes featuredPulse {
+  0%,100% { box-shadow:0 0 30px var(--red-glow) }
+  50%     { box-shadow:0 0 55px rgba(229,0,0,.35) }
+}
+.plan-card.featured { animation: featuredPulse 3s ease-in-out infinite }
+.plan-card {
+  transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s, box-shadow .35s;
+}
+.plan-card:hover { transform:translateY(-8px) }
+
+/* ── Testimonial slide transition ── */
+@keyframes testimonialIn {
+  from { opacity:0; transform:translateX(30px) }
+  to   { opacity:1; transform:none }
+}
+.testimonial-card { animation: testimonialIn .5s cubic-bezier(.22,1,.36,1) both }
+
+/* ── Countdown box pulse ── */
+@keyframes countPulse {
+  0%,100% { transform:scale(1) }
+  50%     { transform:scale(1.04) }
+}
+.countdown-num { display:block; animation: countPulse 1s ease-in-out infinite }
+
+/* ── Page header entrance ── */
+@keyframes pageHeaderIn {
+  from { opacity:0; transform:translateY(-20px) }
+  to   { opacity:1; transform:none }
+}
+.page-header h1 { animation: pageHeaderIn .8s cubic-bezier(.22,1,.36,1) .1s both }
+.page-header p  { animation: pageHeaderIn .8s cubic-bezier(.22,1,.36,1) .3s both }
+.page-header-label { animation: pageHeaderIn .8s cubic-bezier(.22,1,.36,1) 0s both }
+
+/* ── Service item hover ── */
+.service-item {
+  transition: background .25s, padding-left .25s;
+  border-radius:2px;
+}
+.service-item:hover { background:rgba(229,0,0,.04); padding-left:.75rem }
+.service-num { transition: opacity .3s, transform .3s }
+.service-item:hover .service-num { opacity:.6; transform:scale(1.1) }
+
+/* ── Dashboard card ── */
+.dashboard-card {
+  transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .3s;
+}
+.dashboard-card:hover { transform:translateY(-6px); border-color:var(--red) }
+
+/* ── Form input focus ── */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  transition: border-color .25s, box-shadow .25s, background .25s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  background: var(--bg4);
+}
+
+/* ── Footer link hover ── */
+.footer-col a {
+  transition: color .2s, padding-left .2s;
+}
+.footer-col a:hover { padding-left:.4rem }
+
+/* ── Scroll reveal stagger helpers ── */
+.stagger-1 { transition-delay:.05s !important }
+.stagger-2 { transition-delay:.15s !important }
+.stagger-3 { transition-delay:.25s !important }
+.stagger-4 { transition-delay:.35s !important }
+.stagger-5 { transition-delay:.45s !important }
+.stagger-6 { transition-delay:.55s !important }
+
+/* ── Red line draw ── */
+@keyframes lineDraw {
+  from { width:0 }
+  to   { width:24px }
+}
+.sec-label::before { animation: lineDraw .6s cubic-bezier(.22,1,.36,1) .3s both }
+
+/* ── Smooth page transition wrapper ── */
+@keyframes pageIn {
+  from { opacity:0; transform:translateY(16px) }
+  to   { opacity:1; transform:none }
+}
+main { animation: pageIn .5s cubic-bezier(.22,1,.36,1) both }
+
+/* ── Reduce motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+  }
+}

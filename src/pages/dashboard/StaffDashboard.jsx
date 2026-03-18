@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import Animate from '../../components/Animate';
 
 const cards = [
   { title: 'Manage Appointments', desc: 'View and manage customer appointments for personal training sessions and group classes.', link: '/classes', linkText: 'Go to Appointments' },
@@ -15,15 +16,19 @@ export default function StaffDashboard() {
   return (
     <div className="dashboard-section">
       <div className="container">
-        <h1 className="section-title">Staff Dashboard</h1>
-        <p className="section-subtitle">Welcome, {user?.name || 'Staff'}! Manage customer appointments, inquiries, and more.</p>
+        <Animate variant="fadeUp">
+          <h1 className="section-title">Staff Dashboard</h1>
+          <p className="section-subtitle">Welcome, {user?.name || 'Staff'}! Manage customer appointments, inquiries, and more.</p>
+        </Animate>
         <div className="dashboard-grid">
-          {cards.map(c => (
-            <div className="dashboard-card" key={c.title}>
-              <h3>{c.title}</h3>
-              <p>{c.desc}</p>
-              <Link to={c.link}>{c.linkText} →</Link>
-            </div>
+          {cards.map((c, i) => (
+            <Animate key={c.title} variant="fadeUp" delay={`${i * 80}ms`}>
+              <div className="dashboard-card">
+                <h3>{c.title}</h3>
+                <p>{c.desc}</p>
+                <Link to={c.link}>{c.linkText} →</Link>
+              </div>
+            </Animate>
           ))}
         </div>
       </div>

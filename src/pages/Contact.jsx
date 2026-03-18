@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Animate from '../components/Animate';
 
 const info = [
   { icon: '📞', label: 'Phone', value: '+94 11 234 5678' },
@@ -24,45 +25,51 @@ export default function Contact() {
   return (
     <>
       <div className="page-header">
-        <div className="page-header-label">Reach Out</div>
-        <h1>GET IN TOUCH</h1>
-        <p>Questions? We're here and ready to help.</p>
+        <Animate variant="fadeIn">
+          <div className="page-header-label">Reach Out</div>
+          <h1>GET IN TOUCH</h1>
+          <p>Questions? We're here and ready to help.</p>
+        </Animate>
       </div>
       <section className="section">
         <div className="container">
           <div className="grid-2" style={{ alignItems: 'start' }}>
-            <div className="contact-info">
-              <h3>Contact Information</h3>
-              {info.map(i => (
-                <div className="contact-row" key={i.label}>
-                  <div className="contact-icon">{i.icon}</div>
-                  <div>
-                    <strong>{i.label}</strong>
-                    <span>{i.value}</span>
+            <Animate variant="fadeLeft">
+              <div className="contact-info">
+                <h3>Contact Information</h3>
+                {info.map(i => (
+                  <div className="contact-row" key={i.label}>
+                    <div className="contact-icon">{i.icon}</div>
+                    <div>
+                      <strong>{i.label}</strong>
+                      <span>{i.value}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Animate>
 
-            <div className="form-wrap" style={{ maxWidth: '100%' }}>
-              <h2 className="form-title">Send a Message</h2>
-              {feedback && <div className={`form-feedback ${feedback.type}`}>{feedback.msg}</div>}
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>Full Name</label>
-                  <input type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Your name" />
-                </div>
-                <div className="form-group">
-                  <label>Email Address</label>
-                  <input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" />
-                </div>
-                <div className="form-group">
-                  <label>Message</label>
-                  <textarea rows="5" value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="How can we help?" />
-                </div>
-                <button type="submit" className="btn-submit">Send Message</button>
-              </form>
-            </div>
+            <Animate variant="fadeRight">
+              <div className="form-wrap" style={{ maxWidth: '100%' }}>
+                <h2 className="form-title">Send a Message</h2>
+                {feedback && <div className={`form-feedback ${feedback.type}`}>{feedback.msg}</div>}
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label>Full Name</label>
+                    <input type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Your name" />
+                  </div>
+                  <div className="form-group">
+                    <label>Email Address</label>
+                    <input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" />
+                  </div>
+                  <div className="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="How can we help?" />
+                  </div>
+                  <button type="submit" className="btn-submit">Send Message</button>
+                </form>
+              </div>
+            </Animate>
           </div>
         </div>
       </section>

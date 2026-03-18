@@ -1,4 +1,5 @@
 import { img } from '../utils/img';
+import Animate from '../components/Animate';
 
 const trainers = [
   { img: img('/images/trainer1.jpg'), name: 'John Doe', role: 'Certified Personal Trainer', bio: 'Specializes in strength training, weight loss, and bodybuilding. 5+ years helping clients hit their goals with customized plans.', email: 'john.doe@fitzone.com' },
@@ -11,26 +12,30 @@ export default function Trainers() {
   return (
     <>
       <div className="page-header">
-        <div className="page-header-label">The Experts</div>
-        <h1>MEET YOUR COACHES</h1>
-        <p>Certified professionals obsessed with your success</p>
+        <Animate variant="fadeIn">
+          <div className="page-header-label">The Experts</div>
+          <h1>MEET YOUR COACHES</h1>
+          <p>Certified professionals obsessed with your success</p>
+        </Animate>
       </div>
       <section className="section">
         <div className="container">
           <div className="grid-3">
-            {trainers.map(t => (
-              <div className="trainer-card" key={t.name}>
-                <div className="trainer-img-wrap">
-                  <img src={t.img} alt={t.name} className="trainer-img" />
-                  <div className="trainer-overlay" />
+            {trainers.map((t, i) => (
+              <Animate key={t.name} variant="fadeUp" delay={`${i * 120}ms`}>
+                <div className="trainer-card">
+                  <div className="trainer-img-wrap">
+                    <img src={t.img} alt={t.name} className="trainer-img" />
+                    <div className="trainer-overlay" />
+                  </div>
+                  <div className="trainer-body">
+                    <p className="trainer-name">{t.name}</p>
+                    <p className="trainer-role">{t.role}</p>
+                    <p className="trainer-bio">{t.bio}</p>
+                    <a href={`mailto:${t.email}`} className="trainer-contact">✉ Contact {t.name.split(' ')[0]}</a>
+                  </div>
                 </div>
-                <div className="trainer-body">
-                  <p className="trainer-name">{t.name}</p>
-                  <p className="trainer-role">{t.role}</p>
-                  <p className="trainer-bio">{t.bio}</p>
-                  <a href={`mailto:${t.email}`} className="trainer-contact">✉ Contact {t.name.split(' ')[0]}</a>
-                </div>
-              </div>
+              </Animate>
             ))}
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Animate from '../components/Animate';
 
 const plans = [
   {
@@ -29,27 +30,31 @@ export default function Membership() {
   return (
     <>
       <div className="page-header">
-        <div className="page-header-label">Join FitZone</div>
-        <h1>MEMBERSHIP PLANS</h1>
-        <p>Choose the plan that matches your ambition</p>
+        <Animate variant="fadeIn">
+          <div className="page-header-label">Join FitZone</div>
+          <h1>MEMBERSHIP PLANS</h1>
+          <p>Choose the plan that matches your ambition</p>
+        </Animate>
       </div>
       <section className="section">
         <div className="container">
           <div className="grid-3">
-            {plans.map(p => (
-              <div className={`plan-card${p.featured ? ' featured' : ''}`} key={p.name}>
-                {p.featured && <div className="plan-badge">Most Popular</div>}
-                <div className="plan-name">{p.name}</div>
-                <div className="plan-price">{p.price}</div>
-                <div className="plan-period">{p.period}</div>
-                <p className="plan-desc">{p.desc}</p>
-                <ul className="plan-features">
-                  {p.features.map(f => <li key={f}>{f}</li>)}
-                </ul>
-                <Link to="/register" className={`btn ${p.featured ? 'btn-red' : 'btn-ghost'}`} style={{ display: 'block', textAlign: 'center' }}>
-                  Get Started
-                </Link>
-              </div>
+            {plans.map((p, i) => (
+              <Animate key={p.name} variant="scaleUp" delay={`${i * 120}ms`}>
+                <div className={`plan-card${p.featured ? ' featured' : ''}`}>
+                  {p.featured && <div className="plan-badge">Most Popular</div>}
+                  <div className="plan-name">{p.name}</div>
+                  <div className="plan-price">{p.price}</div>
+                  <div className="plan-period">{p.period}</div>
+                  <p className="plan-desc">{p.desc}</p>
+                  <ul className="plan-features">
+                    {p.features.map(f => <li key={f}>{f}</li>)}
+                  </ul>
+                  <Link to="/register" className={`btn ${p.featured ? 'btn-red' : 'btn-ghost'}`} style={{ display: 'block', textAlign: 'center' }}>
+                    Get Started
+                  </Link>
+                </div>
+              </Animate>
             ))}
           </div>
         </div>

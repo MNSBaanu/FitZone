@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import TestimonialSlider from '../components/TestimonialSlider';
 import Countdown from '../components/Countdown';
+import Animate from '../components/Animate';
 import { img } from '../utils/img';
 
 const services = [
@@ -54,22 +55,26 @@ export default function Home() {
       {/* SERVICES */}
       <section className="section">
         <div className="container">
-          <div className="sec-head">
-            <div className="sec-label">What We Offer</div>
-            <h2 className="sec-title">TRAIN LIKE A <em>CHAMPION</em></h2>
-            <p className="sec-sub">World-class facilities and expert-led programs designed to get you results — fast.</p>
-          </div>
+          <Animate variant="fadeUp">
+            <div className="sec-head">
+              <div className="sec-label">What We Offer</div>
+              <h2 className="sec-title">TRAIN LIKE A <em>CHAMPION</em></h2>
+              <p className="sec-sub">World-class facilities and expert-led programs designed to get you results — fast.</p>
+            </div>
+          </Animate>
           <div className="grid-3">
-            {services.map(s => (
-              <div className="card" key={s.title}>
-                <img src={s.img} alt={s.title} className="card-img" />
-                <div className="card-body">
-                  <div className="card-tag">{s.tag}</div>
-                  <h3 className="card-title">{s.title}</h3>
-                  <p className="card-text">{s.desc}</p>
-                  <Link to={s.link} className="card-link">Learn More →</Link>
+            {services.map((s, i) => (
+              <Animate key={s.title} variant="fadeUp" delay={`${i * 120}ms`}>
+                <div className="card">
+                  <img src={s.img} alt={s.title} className="card-img" />
+                  <div className="card-body">
+                    <div className="card-tag">{s.tag}</div>
+                    <h3 className="card-title">{s.title}</h3>
+                    <p className="card-text">{s.desc}</p>
+                    <Link to={s.link} className="card-link">Learn More →</Link>
+                  </div>
                 </div>
-              </div>
+              </Animate>
             ))}
           </div>
         </div>
@@ -78,31 +83,41 @@ export default function Home() {
       {/* TESTIMONIALS */}
       <section className="section section-alt">
         <div className="container">
-          <div className="sec-head sec-head-center">
-            <div className="sec-label">Member Stories</div>
-            <h2 className="sec-title">REAL PEOPLE.<br /><em>REAL RESULTS.</em></h2>
-            <p className="sec-sub">Don't take our word for it — hear from the members who've transformed their lives at FitZone.</p>
-          </div>
-          <div style={{ maxWidth: '680px', margin: '0 auto' }}>
-            <TestimonialSlider />
-          </div>
+          <Animate variant="fadeUp">
+            <div className="sec-head sec-head-center">
+              <div className="sec-label">Member Stories</div>
+              <h2 className="sec-title">REAL PEOPLE.<br /><em>REAL RESULTS.</em></h2>
+              <p className="sec-sub">Don't take our word for it — hear from the members who've transformed their lives at FitZone.</p>
+            </div>
+          </Animate>
+          <Animate variant="scaleUp" delay="150ms">
+            <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+              <TestimonialSlider />
+            </div>
+          </Animate>
         </div>
       </section>
 
       {/* PROMO COUNTDOWN */}
       <section className="promo-section">
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="sec-label" style={{ justifyContent: 'center' }}>Limited Time Offer</div>
-          <h2 className="sec-title" style={{ color: 'var(--white)', textAlign: 'center', marginBottom: '.75rem' }}>
-            GET <em>20% OFF</em> YOUR FIRST 3 MONTHS
-          </h2>
-          <p style={{ color: 'var(--muted)', textAlign: 'center', marginBottom: '2.5rem', fontSize: '.95rem' }}>
-            Offer expires soon. Lock in your rate before it's gone.
-          </p>
-          <Countdown />
-          <div style={{ textAlign: 'center' }}>
-            <Link to="/register" className="btn btn-gold">Claim Your Discount</Link>
-          </div>
+          <Animate variant="fadeUp">
+            <div className="sec-label" style={{ justifyContent: 'center' }}>Limited Time Offer</div>
+            <h2 className="sec-title" style={{ color: 'var(--white)', textAlign: 'center', marginBottom: '.75rem' }}>
+              GET <em>20% OFF</em> YOUR FIRST 3 MONTHS
+            </h2>
+            <p style={{ color: 'var(--muted)', textAlign: 'center', marginBottom: '2.5rem', fontSize: '.95rem' }}>
+              Offer expires soon. Lock in your rate before it's gone.
+            </p>
+          </Animate>
+          <Animate variant="scaleUp" delay="200ms">
+            <Countdown />
+          </Animate>
+          <Animate variant="fadeUp" delay="300ms">
+            <div style={{ textAlign: 'center' }}>
+              <Link to="/register" className="btn btn-gold">Claim Your Discount</Link>
+            </div>
+          </Animate>
         </div>
       </section>
     </>

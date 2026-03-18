@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Animate from '../components/Animate';
 
 const services = [
   { num: '01', title: 'Fitness Classes', desc: 'Cardio, Strength Training, Yoga, and Pilates — all led by certified instructors passionate about helping you reach your goals.', link: '/classes', linkText: 'View Schedule' },
@@ -12,21 +13,25 @@ export default function Services() {
   return (
     <>
       <div className="page-header">
-        <div className="page-header-label">What We Offer</div>
-        <h1>OUR SERVICES</h1>
-        <p>Everything you need to reach your peak performance</p>
+        <Animate variant="fadeIn">
+          <div className="page-header-label">What We Offer</div>
+          <h1>OUR SERVICES</h1>
+          <p>Everything you need to reach your peak performance</p>
+        </Animate>
       </div>
       <section className="section">
         <div className="container" style={{ maxWidth: '860px' }}>
-          {services.map(s => (
-            <div className="service-item" key={s.title}>
-              <div className="service-num">{s.num}</div>
-              <div>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-                <Link to={s.link}>{s.linkText} →</Link>
+          {services.map((s, i) => (
+            <Animate key={s.title} variant="fadeLeft" delay={`${i * 100}ms`}>
+              <div className="service-item">
+                <div className="service-num">{s.num}</div>
+                <div>
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                  <Link to={s.link}>{s.linkText} →</Link>
+                </div>
               </div>
-            </div>
+            </Animate>
           ))}
         </div>
       </section>

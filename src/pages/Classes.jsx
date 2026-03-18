@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { img } from '../utils/img';
+import Animate from '../components/Animate';
 
 const classes = [
   { tag: 'Cardio', title: 'Cardio Blast', trainer: 'John Doe', schedule: 'Mon / Wed / Fri — 7:00 AM', desc: 'High-energy cardio designed to torch calories and boost endurance. Suitable for all fitness levels.', img: img('/images/personal-training.jpg') },
@@ -11,25 +12,29 @@ export default function Classes() {
   return (
     <>
       <div className="page-header">
-        <div className="page-header-label">Train With Us</div>
-        <h1>FITNESS CLASSES</h1>
-        <p>Find the class that matches your intensity</p>
+        <Animate variant="fadeIn">
+          <div className="page-header-label">Train With Us</div>
+          <h1>FITNESS CLASSES</h1>
+          <p>Find the class that matches your intensity</p>
+        </Animate>
       </div>
       <section className="section">
         <div className="container">
           <div className="grid-3">
-            {classes.map(c => (
-              <div className="card" key={c.title}>
-                <img src={c.img} alt={c.title} className="card-img" />
-                <div className="card-body">
-                  <div className="card-tag">{c.tag}</div>
-                  <h3 className="card-title">{c.title}</h3>
-                  <p className="card-text">{c.desc}</p>
-                  <p className="card-meta">Coach: {c.trainer}</p>
-                  <p className="card-schedule">{c.schedule}</p>
-                  <Link to="/register" className="btn btn-ghost btn-sm">Register Now</Link>
+            {classes.map((c, i) => (
+              <Animate key={c.title} variant="fadeUp" delay={`${i * 120}ms`}>
+                <div className="card">
+                  <img src={c.img} alt={c.title} className="card-img" />
+                  <div className="card-body">
+                    <div className="card-tag">{c.tag}</div>
+                    <h3 className="card-title">{c.title}</h3>
+                    <p className="card-text">{c.desc}</p>
+                    <p className="card-meta">Coach: {c.trainer}</p>
+                    <p className="card-schedule">{c.schedule}</p>
+                    <Link to="/register" className="btn btn-ghost btn-sm">Register Now</Link>
+                  </div>
                 </div>
-              </div>
+              </Animate>
             ))}
           </div>
         </div>
