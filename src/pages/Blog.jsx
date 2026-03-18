@@ -1,17 +1,18 @@
 import { img } from '../utils/img';
 
 const posts = [
-  { title: '5 Effective Workouts for Beginners', date: 'March 10, 2025', desc: 'Starting your fitness journey can be overwhelming. Here\'s a guide with five beginner-friendly workouts to help you get started and stay motivated.', img: img('/images/group-classes.jpg') },
-  { title: 'Healthy Meal Prep Ideas for Busy People', date: 'February 28, 2025', desc: 'Meal prepping doesn\'t have to be time-consuming. Check out these easy and healthy meal prep ideas that will save you time and help you stay on track with your nutrition goals.', img: img('/images/nutrition.jpg') },
-  { title: 'The Importance of Mental Health in Fitness', date: 'February 15, 2025', desc: 'Fitness isn\'t just physical; it\'s also about mental well-being. Learn why mental health plays a crucial role in achieving fitness goals and how to keep your mind in the game.', img: img('/images/personal-training.jpg') },
+  { title: '5 Effective Workouts for Beginners', date: 'March 10, 2025', category: 'Training', desc: "Starting your fitness journey can be overwhelming. Here's a guide with five beginner-friendly workouts to help you get started and stay motivated.", img: img('/images/group-classes.jpg') },
+  { title: 'Healthy Meal Prep Ideas for Busy People', date: 'February 28, 2025', category: 'Nutrition', desc: "Meal prepping doesn't have to be time-consuming. Easy and healthy meal prep ideas that save time and keep your nutrition on track.", img: img('/images/nutrition.jpg') },
+  { title: 'The Importance of Mental Health in Fitness', date: 'February 15, 2025', category: 'Wellness', desc: "Fitness isn't just physical. Learn why mental health plays a crucial role in achieving fitness goals and how to keep your mind in the game.", img: img('/images/personal-training.jpg') },
 ];
 
 export default function Blog() {
   return (
     <>
       <div className="page-header">
-        <h1>Fitness Tips & Wellness Blog</h1>
-        <p>Insights, tips, and stories to inspire your journey</p>
+        <div className="page-header-label">Knowledge Hub</div>
+        <h1>FITNESS BLOG</h1>
+        <p>Tips, insights, and stories to fuel your journey</p>
       </div>
       <section className="section">
         <div className="container">
@@ -20,10 +21,11 @@ export default function Blog() {
               <div className="card" key={p.title}>
                 <img src={p.img} alt={p.title} className="card-img" />
                 <div className="card-body">
-                  <p className="blog-meta">{p.date}</p>
+                  <div className="card-tag">{p.category}</div>
+                  <p className="blog-date">{p.date}</p>
                   <h3 className="card-title">{p.title}</h3>
                   <p className="card-text">{p.desc}</p>
-                  <a href="#" className="card-link">Read More →</a>
+                  <a href="#" className="card-link">Read Article →</a>
                 </div>
               </div>
             ))}

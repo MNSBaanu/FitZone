@@ -1,59 +1,86 @@
 import { img } from '../utils/img';
 
 const trainers = [
-  { img: img('/images/trainer1.jpg'), name: 'John Doe', role: 'Certified Personal Trainer', spec: 'Strength & Conditioning Specialist' },
-  { img: img('/images/trainer2.jpg'), name: 'Jane Smith', role: 'Yoga Instructor', spec: 'Mindfulness & Flexibility Coach' },
-  { img: img('/images/trainer3.jpg'), name: 'Mark Johnson', role: 'Nutritionist', spec: 'Weight Loss & Health Coach' },
+  { img: img('/images/trainer1.jpg'), name: 'John Doe', role: 'Personal Trainer', spec: 'Strength & Conditioning' },
+  { img: img('/images/trainer2.jpg'), name: 'Jane Smith', role: 'Yoga Instructor', spec: 'Mindfulness & Flexibility' },
+  { img: img('/images/trainer3.jpg'), name: 'Mark Johnson', role: 'Nutritionist', spec: 'Weight Loss & Health' },
+];
+
+const values = [
+  { icon: '⚡', title: 'Integrity', desc: 'We operate with honesty and transparency in everything we do.' },
+  { icon: '🏆', title: 'Excellence', desc: 'We continually strive to improve our services and offerings.' },
+  { icon: '🤝', title: 'Inclusivity', desc: 'We welcome people from all walks of life and fitness levels.' },
+  { icon: '💪', title: 'Community', desc: 'We foster a positive, motivating environment for everyone.' },
 ];
 
 export default function About() {
   return (
     <>
       <div className="page-header">
-        <h1>About FitZone</h1>
-        <p>Our mission, values, and the team behind your fitness journey</p>
+        <div className="page-header-label">Our Story</div>
+        <h1>ABOUT FITZONE</h1>
+        <p>Built by athletes. Designed for everyone.</p>
       </div>
 
+      {/* Mission */}
       <section className="section">
         <div className="container">
-          <div className="grid-2">
+          <div className="grid-2" style={{ alignItems: 'start' }}>
             <div>
-              <h2 style={{ color: '#b30000', fontSize: '1.5rem', marginBottom: '1rem' }}>Our Mission</h2>
-              <p style={{ color: '#aaa', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+              <div className="sec-label">Our Purpose</div>
+              <h2 className="sec-title">OUR <em>MISSION</em></h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.85, marginBottom: '2rem', fontSize: '.95rem' }}>
                 At FitZone, our mission is to provide top-quality fitness services, expert training, and personalized programs designed to help individuals of all fitness levels achieve their health and wellness goals. We are dedicated to building a supportive and motivating environment where you can thrive.
               </p>
-              <h2 style={{ color: '#b30000', fontSize: '1.5rem', marginBottom: '1rem' }}>Why Choose Us?</h2>
-              <ul style={{ color: '#aaa', paddingLeft: '1.5rem', lineHeight: '2' }}>
-                <li>State-of-the-art equipment</li>
-                <li>Experienced and certified trainers</li>
-                <li>Wide range of fitness programs</li>
-                <li>Personalized training and nutrition counseling</li>
-                <li>Motivating and supportive community</li>
+              <div className="sec-label">Why Choose Us</div>
+              <ul style={{ listStyle: 'none', marginTop: '.5rem' }}>
+                {['State-of-the-art equipment', 'Experienced and certified trainers', 'Wide range of fitness programs', 'Personalized training & nutrition', 'Motivating community'].map(item => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '.75rem', padding: '.6rem 0', borderBottom: '1px solid var(--border)', color: 'var(--text)', fontSize: '.9rem' }}>
+                    <span style={{ color: 'var(--red)', fontWeight: 700 }}>→</span> {item}
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="card" style={{ padding: '2rem' }}>
-              <h2 style={{ color: '#b30000', fontSize: '1.5rem', marginBottom: '1rem' }}>Our Values</h2>
-              <p style={{ color: '#aaa', marginBottom: '1rem', lineHeight: '1.8' }}>
-                We believe that fitness is not just about physical appearance — it's about health, well-being, and the confidence that comes from achieving personal goals.
-              </p>
-              <ul style={{ color: '#aaa', paddingLeft: '1.5rem', lineHeight: '2' }}>
-                <li><strong style={{ color: '#f0f0f0' }}>Integrity</strong> — Honesty and transparency in everything we do.</li>
-                <li><strong style={{ color: '#f0f0f0' }}>Excellence</strong> — Continually improving our services.</li>
-                <li><strong style={{ color: '#f0f0f0' }}>Inclusivity</strong> — Welcoming people from all walks of life.</li>
-                <li><strong style={{ color: '#f0f0f0' }}>Community</strong> — A positive, motivating environment for everyone.</li>
-              </ul>
+
+            <div>
+              <div className="sec-label">What We Stand For</div>
+              <h2 className="sec-title">OUR <em>VALUES</em></h2>
+              <div style={{ marginTop: '1.5rem' }}>
+                {values.map(v => (
+                  <div className="about-value" key={v.title}>
+                    <div className="about-value-icon">{v.icon}</div>
+                    <div>
+                      <h4 className="about-value-title" style={{ fontFamily: 'var(--fo)', fontSize: '.9rem', fontWeight: 700, color: 'var(--white)', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: '.25rem' }}>{v.title}</h4>
+                      <p style={{ color: 'var(--muted)', fontSize: '.85rem', lineHeight: 1.65 }}>{v.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Trainers */}
-          <h2 className="section-title" style={{ marginTop: '4rem' }}>Meet Our Trainers</h2>
-          <div className="grid-3" style={{ marginTop: '2rem' }}>
+      {/* Trainers */}
+      <section className="section section-alt">
+        <div className="container">
+          <div className="sec-head sec-head-center">
+            <div className="sec-label">The Team</div>
+            <h2 className="sec-title">MEET THE <em>COACHES</em></h2>
+            <p className="sec-sub">Certified professionals who live and breathe fitness — and are obsessed with your success.</p>
+          </div>
+          <div className="grid-3">
             {trainers.map(t => (
               <div className="trainer-card" key={t.name}>
-                <img src={t.img} alt={t.name} className="trainer-avatar" />
-                <p className="trainer-name">{t.name}</p>
-                <p className="trainer-role">{t.role}</p>
-                <p className="trainer-bio">{t.spec}</p>
+                <div className="trainer-img-wrap">
+                  <img src={t.img} alt={t.name} className="trainer-img" />
+                  <div className="trainer-overlay" />
+                </div>
+                <div className="trainer-body">
+                  <p className="trainer-name">{t.name}</p>
+                  <p className="trainer-role">{t.role}</p>
+                  <p className="trainer-bio">{t.spec}</p>
+                </div>
               </div>
             ))}
           </div>

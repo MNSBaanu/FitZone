@@ -1,5 +1,12 @@
 import { useState } from 'react';
 
+const info = [
+  { icon: '📞', label: 'Phone', value: '+94 11 234 5678' },
+  { icon: '✉', label: 'Email', value: 'info@fitzone.com' },
+  { icon: '📍', label: 'Location', value: 'No. 123, Fitness Street, Kurunegala, Sri Lanka' },
+  { icon: '🕐', label: 'Hours', value: 'Mon–Fri: 6AM–10PM | Sat–Sun: 7AM–8PM' },
+];
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [feedback, setFeedback] = useState(null);
@@ -10,30 +17,35 @@ export default function Contact() {
       setFeedback({ type: 'error', msg: 'All fields are required.' });
       return;
     }
-    // In a real app, POST to backend here
-    setFeedback({ type: 'success', msg: 'Message sent! We\'ll get back to you soon.' });
+    setFeedback({ type: 'success', msg: "Message sent! We'll get back to you within 24 hours." });
     setForm({ name: '', email: '', message: '' });
   };
 
   return (
     <>
       <div className="page-header">
-        <h1>Get in Touch</h1>
-        <p>Have questions? We're here to help.</p>
+        <div className="page-header-label">Reach Out</div>
+        <h1>GET IN TOUCH</h1>
+        <p>Questions? We're here and ready to help.</p>
       </div>
       <section className="section">
         <div className="container">
-          <div className="grid-2">
+          <div className="grid-2" style={{ alignItems: 'start' }}>
             <div className="contact-info">
-              <h3>Our Contact Information</h3>
-              <p><strong>Phone:</strong> +94 11 234 5678</p>
-              <p><strong>Email:</strong> info@fitzone.com</p>
-              <p><strong>Location:</strong> No. 123, Fitness Street, Kurunegala, Sri Lanka</p>
-              <p><strong>Hours:</strong> Mon–Fri: 6AM–10PM | Sat–Sun: 7AM–8PM</p>
+              <h3>Contact Information</h3>
+              {info.map(i => (
+                <div className="contact-row" key={i.label}>
+                  <div className="contact-icon">{i.icon}</div>
+                  <div>
+                    <strong>{i.label}</strong>
+                    <span>{i.value}</span>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="form-wrapper" style={{ maxWidth: '100%' }}>
-              <h2 className="form-title">Send Us a Message</h2>
+            <div className="form-wrap" style={{ maxWidth: '100%' }}>
+              <h2 className="form-title">Send a Message</h2>
               {feedback && <div className={`form-feedback ${feedback.type}`}>{feedback.msg}</div>}
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -45,8 +57,8 @@ export default function Contact() {
                   <input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" />
                 </div>
                 <div className="form-group">
-                  <label>Your Message</label>
-                  <textarea rows="4" value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="How can we help?" />
+                  <label>Message</label>
+                  <textarea rows="5" value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="How can we help?" />
                 </div>
                 <button type="submit" className="btn-submit">Send Message</button>
               </form>
