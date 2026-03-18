@@ -22,7 +22,10 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg" />
+        <div className="hero-bg">
+          <img src={img('/images/Hero.png')} className="hero-layer hero-layer-1" alt="" aria-hidden="true" />
+          <div className="hero-overlay" />
+        </div>
         <div className="hero-content">
           <div className="hero-eyebrow">Welcome to FitZone</div>
           <h1>FORGE YOUR<br /><em>BEST SELF</em></h1>

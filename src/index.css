@@ -30,16 +30,18 @@ h1,h2,h3,h4{font-family:var(--fo);text-transform:uppercase;letter-spacing:.04em;
 
 /* HERO */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:var(--bg)}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#000 0%,#1a0000 50%,#000 100%)}
-.hero-bg::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(229,0,0,.025) 60px,rgba(229,0,0,.025) 61px)}
-.hero-content{position:relative;z-index:2;padding:2rem 1.5rem;max-width:900px}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-overlay{position:absolute;inset:0;z-index:4;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.72) 60%,rgba(0,0,0,.92) 100%)}
+.hero-overlay::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(229,0,0,.03) 60px,rgba(229,0,0,.03) 61px)}
+.hero-content{position:relative;z-index:5;padding:2rem 1.5rem;max-width:900px}
 .hero-eyebrow{font-family:var(--fo);font-size:.78rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;gap:.75rem}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--red)}
 .hero h1{font-family:var(--fh);font-size:clamp(4rem,12vw,9rem);letter-spacing:.06em;color:var(--white);line-height:.95;margin-bottom:1.5rem}
 .hero h1 em{color:var(--red);font-style:normal}
 .hero-sub{font-size:1.05rem;font-weight:300;color:var(--text);max-width:520px;margin:0 auto 2.5rem;line-height:1.8}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-family:var(--fo);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-family:var(--fo);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase}
 .hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--red),transparent);animation:scrollPulse 2s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
 
@@ -270,7 +272,7 @@ footer{background:var(--bg1);border-top:1px solid var(--border)}
   0%,100% { opacity:.6 }
   50%     { opacity:1  }
 }
-.hero-bg { animation: bgPulse 8s ease-in-out infinite }
+.hero-bg { animation: none }
 
 /* ── Navbar entrance ── */
 @keyframes navSlide {
