@@ -12,9 +12,9 @@ node_modules
 fitzone-react/node_modules
 
 # Build output
-dist
 dist-ssr
 fitzone-react/dist
+# docs/ is intentionally committed for GitHub Pages
 
 # Local env files
 *.local
