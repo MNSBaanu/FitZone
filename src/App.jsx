@@ -21,7 +21,7 @@ import CustomerDashboard from './pages/dashboard/CustomerDashboard';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/FitZone/">
         <Navbar />
         <main>
           <Routes>
