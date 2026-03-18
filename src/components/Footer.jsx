@@ -26,7 +26,6 @@ export default function Footer() {
           <h4>Contact</h4>
           <a href="tel:+94112345678">+94 11 234 5678</a>
           <a href="mailto:info@fitzone.com">info@fitzone.com</a>
-          <span style={{color:'var(--muted)',fontSize:'.85rem'}}>No. 123, Fitness Street<br/>Kurunegala, Sri Lanka</span>
         </div>
       </div>
       <div className="footer-bottom">

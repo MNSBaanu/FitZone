@@ -1,28 +1,40 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const links = [
+const primary = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
+  { to: '/membership', label: 'Membership' },
+  { to: '/contact', label: 'Contact' },
+];
+
+const more = [
   { to: '/services', label: 'Services' },
   { to: '/classes', label: 'Classes' },
   { to: '/trainers', label: 'Trainers' },
-  { to: '/membership', label: 'Membership' },
   { to: '/blog', label: 'Blog' },
-  { to: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [dropOpen, setDropOpen] = useState(false);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const dropRef = useRef(null);
 
   const close = () => setOpen(false);
   const handleLogout = () => { logout(); navigate('/'); close(); };
 
   const dashPath = user?.role === 'admin' ? '/dashboard/admin'
     : user?.role === 'staff' ? '/dashboard/staff' : '/dashboard/customer';
+
+  // close dropdown on outside click
+  useEffect(() => {
+    const handler = (e) => { if (dropRef.current && !dropRef.current.contains(e.target)) setDropOpen(false); };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
 
   return (
     <nav className="navbar">
@@ -38,12 +50,30 @@ export default function Navbar() {
         </button>
 
         <div className={`navbar-links${open ? ' open' : ''}`}>
-          {links.map(({ to, label }) => (
+          {primary.map(({ to, label }) => (
             <NavLink key={to} to={to} onClick={close}
               className={({ isActive }) => isActive ? 'active' : ''}>
               {label}
             </NavLink>
           ))}
+
+          {/* More dropdown */}
+          <div className="nav-dropdown" ref={dropRef}>
+            <button className="nav-more-btn" onClick={() => setDropOpen(!dropOpen)}>
+              More <span className={`nav-caret${dropOpen ? ' open' : ''}`}>▾</span>
+            </button>
+            {dropOpen && (
+              <div className="nav-dropdown-menu">
+                {more.map(({ to, label }) => (
+                  <NavLink key={to} to={to} onClick={() => { close(); setDropOpen(false); }}
+                    className={({ isActive }) => isActive ? 'active' : ''}>
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            )}
+          </div>
+
           {user ? (
             <>
               <NavLink to={dashPath} onClick={close} className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
