@@ -1,4 +1,5 @@
 import Animate from '../components/Animate';
+import PageHeader from '../components/PageHeader';
 import { img } from '../utils/img';
 
 const trainers = [
@@ -17,11 +18,7 @@ const values = [
 export default function About() {
   return (
     <>
-      <div className="page-header">
-        <div className="page-header-label">Our Story</div>
-        <h1>ABOUT FITZONE</h1>
-        <p>Built by athletes. Designed for everyone.</p>
-      </div>
+      <PageHeader label="Our Story" title="ABOUT FITZONE" subtitle="Built by athletes. Designed for everyone." />
 
       <section className="section">
         <div className="container">

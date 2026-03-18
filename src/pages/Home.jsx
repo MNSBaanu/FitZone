@@ -84,7 +84,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="section section-alt">
+      <section className="section section-alt section-bg1" style={{ backgroundImage: `url(${img('/images/Background1.png')})` }}>
         <div className="container">
           <Animate variant="fadeUp">
             <div className="sec-head sec-head-center">

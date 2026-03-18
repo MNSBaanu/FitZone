@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Animate from '../components/Animate';
+import PageHeader from '../components/PageHeader';
 
 const info = [
   { icon: '📞', label: 'Phone', value: '+94 11 234 5678' },
@@ -24,13 +25,7 @@ export default function Contact() {
 
   return (
     <>
-      <div className="page-header">
-        <Animate variant="fadeIn">
-          <div className="page-header-label">Reach Out</div>
-          <h1>GET IN TOUCH</h1>
-          <p>Questions? We're here and ready to help.</p>
-        </Animate>
-      </div>
+      <PageHeader label="Reach Out" title="GET IN TOUCH" subtitle="Questions? We're here and ready to help." />
       <section className="section">
         <div className="container">
           <div className="grid-2" style={{ alignItems: 'start' }}>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Animate from '../components/Animate';
+import PageHeader from '../components/PageHeader';
 
 const services = [
   { num: '01', title: 'Fitness Classes', desc: 'Cardio, Strength Training, Yoga, and Pilates — all led by certified instructors passionate about helping you reach your goals.', link: '/classes', linkText: 'View Schedule' },
@@ -12,13 +13,7 @@ const services = [
 export default function Services() {
   return (
     <>
-      <div className="page-header">
-        <Animate variant="fadeIn">
-          <div className="page-header-label">What We Offer</div>
-          <h1>OUR SERVICES</h1>
-          <p>Everything you need to reach your peak performance</p>
-        </Animate>
-      </div>
+      <PageHeader label="What We Offer" title="OUR SERVICES" subtitle="Everything you need to reach your peak performance" />
       <section className="section">
         <div className="container" style={{ maxWidth: '860px' }}>
           {services.map((s, i) => (

@@ -1,5 +1,6 @@
 import { img } from '../utils/img';
 import Animate from '../components/Animate';
+import PageHeader from '../components/PageHeader';
 
 const trainers = [
   { img: img('/images/trainer1.jpg'), name: 'John Doe', role: 'Certified Personal Trainer', bio: 'Specializes in strength training, weight loss, and bodybuilding. 5+ years helping clients hit their goals with customized plans.', email: 'john.doe@fitzone.com' },
@@ -11,13 +12,7 @@ const trainers = [
 export default function Trainers() {
   return (
     <>
-      <div className="page-header">
-        <Animate variant="fadeIn">
-          <div className="page-header-label">The Experts</div>
-          <h1>MEET YOUR COACHES</h1>
-          <p>Certified professionals obsessed with your success</p>
-        </Animate>
-      </div>
+      <PageHeader label="The Experts" title="MEET YOUR COACHES" subtitle="Certified professionals obsessed with your success" />
       <section className="section">
         <div className="container">
           <div className="grid-3">

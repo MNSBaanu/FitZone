@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Animate from '../components/Animate';
+import PageHeader from '../components/PageHeader';
 
 const plans = [
   {
@@ -29,13 +30,7 @@ const plans = [
 export default function Membership() {
   return (
     <>
-      <div className="page-header">
-        <Animate variant="fadeIn">
-          <div className="page-header-label">Join FitZone</div>
-          <h1>MEMBERSHIP PLANS</h1>
-          <p>Choose the plan that matches your ambition</p>
-        </Animate>
-      </div>
+      <PageHeader label="Join FitZone" title="MEMBERSHIP PLANS" subtitle="Choose the plan that matches your ambition" />
       <section className="section">
         <div className="container">
           <div className="grid-3">
