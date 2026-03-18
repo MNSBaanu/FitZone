@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { img } from '../utils/img';
 
 const classes = [
   {
@@ -6,21 +7,21 @@ const classes = [
     trainer: 'John Doe',
     schedule: 'Monday, Wednesday, Friday — 7:00 AM to 8:00 AM',
     desc: 'A high-energy workout designed to boost your heart rate and burn calories. Suitable for all fitness levels.',
-    img: '/images/personal-training.jpg',
+    img: img('/images/personal-training.jpg'),
   },
   {
     title: 'Strength Training',
     trainer: 'Jane Smith',
     schedule: 'Tuesday, Thursday — 6:00 PM to 7:00 PM',
     desc: 'Focuses on building strength using weights, machines, and bodyweight exercises. Ideal for building muscle and endurance.',
-    img: '/images/group-classes.jpg',
+    img: img('/images/group-classes.jpg'),
   },
   {
     title: 'Yoga Class',
     trainer: 'Emily Johnson',
     schedule: 'Monday, Wednesday — 8:00 AM to 9:00 AM',
     desc: 'A holistic class focused on flexibility, mindfulness, and relaxation. Great for stress relief and improving mobility.',
-    img: '/images/nutrition.jpg',
+    img: img('/images/nutrition.jpg'),
   },
 ];
 

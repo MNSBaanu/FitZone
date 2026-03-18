@@ -1,8 +1,10 @@
+import { img } from '../utils/img';
+
 const trainers = [
-  { img: '/images/trainer1.jpg', name: 'John Doe', role: 'Certified Personal Trainer', bio: 'John specializes in strength training, weight loss, and bodybuilding. He has 5+ years of experience helping clients achieve their fitness goals with customized workout plans.', email: 'john.doe@fitzone.com' },
-  { img: '/images/trainer2.jpg', name: 'Jane Smith', role: 'Certified Yoga Instructor', bio: 'Jane has over 10 years of experience in yoga and mindfulness training. She specializes in flexibility, stress reduction, and holistic wellness.', email: 'jane.smith@fitzone.com' },
-  { img: '/images/trainer3.jpg', name: 'Mike Johnson', role: 'Certified Strength Coach', bio: 'Mike is an expert in powerlifting and strength conditioning. He focuses on improving clients\' strength, mobility, and overall performance.', email: 'mike.johnson@fitzone.com' },
-  { img: '/images/trainer1.jpg', name: 'Sarah Lee', role: 'Certified Nutrition Coach', bio: 'Sarah helps clients with nutrition planning, meal prepping, and healthy eating habits. She works closely with clients to create personalized diet plans.', email: 'sarah.lee@fitzone.com' },
+  { img: img('/images/trainer1.jpg'), name: 'John Doe', role: 'Certified Personal Trainer', bio: 'John specializes in strength training, weight loss, and bodybuilding. He has 5+ years of experience helping clients achieve their fitness goals with customized workout plans.', email: 'john.doe@fitzone.com' },
+  { img: img('/images/trainer2.jpg'), name: 'Jane Smith', role: 'Certified Yoga Instructor', bio: 'Jane has over 10 years of experience in yoga and mindfulness training. She specializes in flexibility, stress reduction, and holistic wellness.', email: 'jane.smith@fitzone.com' },
+  { img: img('/images/trainer3.jpg'), name: 'Mike Johnson', role: 'Certified Strength Coach', bio: 'Mike is an expert in powerlifting and strength conditioning. He focuses on improving clients\' strength, mobility, and overall performance.', email: 'mike.johnson@fitzone.com' },
+  { img: img('/images/trainer1.jpg'), name: 'Sarah Lee', role: 'Certified Nutrition Coach', bio: 'Sarah helps clients with nutrition planning, meal prepping, and healthy eating habits. She works closely with clients to create personalized diet plans.', email: 'sarah.lee@fitzone.com' },
 ];
 
 export default function Trainers() {

@@ -1,7 +1,9 @@
+import { img } from '../utils/img';
+
 const posts = [
-  { title: '5 Effective Workouts for Beginners', date: 'March 10, 2025', desc: 'Starting your fitness journey can be overwhelming. Here\'s a guide with five beginner-friendly workouts to help you get started and stay motivated.', img: '/images/group-classes.jpg' },
-  { title: 'Healthy Meal Prep Ideas for Busy People', date: 'February 28, 2025', desc: 'Meal prepping doesn\'t have to be time-consuming. Check out these easy and healthy meal prep ideas that will save you time and help you stay on track with your nutrition goals.', img: '/images/nutrition.jpg' },
-  { title: 'The Importance of Mental Health in Fitness', date: 'February 15, 2025', desc: 'Fitness isn\'t just physical; it\'s also about mental well-being. Learn why mental health plays a crucial role in achieving fitness goals and how to keep your mind in the game.', img: '/images/personal-training.jpg' },
+  { title: '5 Effective Workouts for Beginners', date: 'March 10, 2025', desc: 'Starting your fitness journey can be overwhelming. Here\'s a guide with five beginner-friendly workouts to help you get started and stay motivated.', img: img('/images/group-classes.jpg') },
+  { title: 'Healthy Meal Prep Ideas for Busy People', date: 'February 28, 2025', desc: 'Meal prepping doesn\'t have to be time-consuming. Check out these easy and healthy meal prep ideas that will save you time and help you stay on track with your nutrition goals.', img: img('/images/nutrition.jpg') },
+  { title: 'The Importance of Mental Health in Fitness', date: 'February 15, 2025', desc: 'Fitness isn\'t just physical; it\'s also about mental well-being. Learn why mental health plays a crucial role in achieving fitness goals and how to keep your mind in the game.', img: img('/images/personal-training.jpg') },
 ];
 
 export default function Blog() {

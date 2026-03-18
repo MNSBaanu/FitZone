@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import TestimonialSlider from '../components/TestimonialSlider';
 import Countdown from '../components/Countdown';
+import { img } from '../utils/img';
 
 const services = [
-  { img: '/images/personal-training.jpg', title: 'Personal Training', desc: 'Get personalized fitness programs designed to meet your goals. Work one-on-one with certified trainers.', link: '/services' },
-  { img: '/images/group-classes.jpg', title: 'Group Classes', desc: 'Join our fun and engaging group workouts. From yoga to strength training, we have something for everyone!', link: '/classes' },
-  { img: '/images/nutrition.jpg', title: 'Nutrition Counseling', desc: 'Work with our expert nutritionists to develop meal plans that fuel your fitness journey.', link: '/services' },
+  { img: img('/images/personal-training.jpg'), title: 'Personal Training', desc: 'Get personalized fitness programs designed to meet your goals. Work one-on-one with certified trainers.', link: '/services' },
+  { img: img('/images/group-classes.jpg'), title: 'Group Classes', desc: 'Join our fun and engaging group workouts. From yoga to strength training, we have something for everyone!', link: '/classes' },
+  { img: img('/images/nutrition.jpg'), title: 'Nutrition Counseling', desc: 'Work with our expert nutritionists to develop meal plans that fuel your fitness journey.', link: '/services' },
 ];
 
 export default function Home() {

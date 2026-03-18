@@ -1,7 +1,9 @@
+import { img } from '../utils/img';
+
 const trainers = [
-  { img: '/images/trainer1.jpg', name: 'John Doe', role: 'Certified Personal Trainer', spec: 'Strength & Conditioning Specialist' },
-  { img: '/images/trainer2.jpg', name: 'Jane Smith', role: 'Yoga Instructor', spec: 'Mindfulness & Flexibility Coach' },
-  { img: '/images/trainer3.jpg', name: 'Mark Johnson', role: 'Nutritionist', spec: 'Weight Loss & Health Coach' },
+  { img: img('/images/trainer1.jpg'), name: 'John Doe', role: 'Certified Personal Trainer', spec: 'Strength & Conditioning Specialist' },
+  { img: img('/images/trainer2.jpg'), name: 'Jane Smith', role: 'Yoga Instructor', spec: 'Mindfulness & Flexibility Coach' },
+  { img: img('/images/trainer3.jpg'), name: 'Mark Johnson', role: 'Nutritionist', spec: 'Weight Loss & Health Coach' },
 ];
 
 export default function About() {
