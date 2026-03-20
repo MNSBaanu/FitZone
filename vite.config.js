@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/FitZone/',
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
   },
 })
