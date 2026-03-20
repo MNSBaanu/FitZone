@@ -27,7 +27,13 @@ export default function Trainers() {
                     <p className="trainer-name">{t.name}</p>
                     <p className="trainer-role">{t.role}</p>
                     <p className="trainer-bio">{t.bio}</p>
-                    <a href={`mailto:${t.email}`} className="trainer-contact">✉ Contact {t.name.split(' ')[0]}</a>
+                    <a href={`mailto:${t.email}`} className="trainer-contact">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '0.35rem' }}>
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m2 7 8.97 5.7a1.94 1.94 0 0 0 2.06 0L22 7"/>
+                      </svg>
+                      Contact {t.name.split(' ')[0]}
+                    </a>
                   </div>
                 </div>
               </Animate>

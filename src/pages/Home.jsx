@@ -37,10 +37,6 @@ export default function Home() {
             <Link to="/classes" className="btn btn-outline">View Classes</Link>
           </div>
         </div>
-        <div className="hero-scroll">
-          <div className="hero-scroll-line" />
-          Scroll
-        </div>
       </section>
 
       {/* STATS */}
